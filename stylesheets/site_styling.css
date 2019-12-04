@@ -1,6 +1,10 @@
 .content {
-  max-width: 70%;
+  max-width: 50%;
+  height: auto;
+  overflow:hidden;
   margin:auto;
+  padding:30px 15px 15px 15px;
+  margin-bottom:51px;
 }
 
 .footer {
@@ -16,34 +20,36 @@
 
 /* sticky navbar container with black */
 ul.navbar {
-    position: sticky;
-    top: 0;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
+  position: fixed;
+  width:100%;
+  list-style-type: none;
+  left:0;
+  top:0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
 /* white borders */ 
 ul.navbar li {
-    float: left;
-  }
+  float: left;
+}
 /* white text that is center aligned, suitable padding, in a block */
 ul.navbar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 /* black when hovering over */
 ul.navbar li a:hover {
-    background-color: #111;
+  background-color: #111;
 }
 /* blue when active */
 ul.navbar li a.active {
-    background-color: #21a6cb;
+  background-color: #21a6cb;
 }
 
 .centered {
@@ -63,6 +69,7 @@ ul.navbar li a.active {
 
 body {
   background-color: lightblue;
+  font-family:"Palatino Linotype", "Book Antiqua", serif
 }
 
 

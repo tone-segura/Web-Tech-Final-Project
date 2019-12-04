@@ -6,15 +6,13 @@ h1 {
     text-align: center;
     width: 100%;
     position:absolute;
-    top:20%;
+    top:15%;
   }
 
 .explanation {
     margin: 0 auto;
     position: relative;
     background: #f2f2f2;
+    padding: 20px;
 }
 
-p {
-    padding: 20px
-}
