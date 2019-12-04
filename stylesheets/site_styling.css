@@ -1,5 +1,5 @@
 .content {
-  max-width: 960px;
+  max-width: 70%;
   margin:auto;
 }
 
@@ -8,10 +8,12 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: blueviolet;
+  background-color: #21a6cb;
   color: white;
   text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
 /* sticky navbar container with black */
 ul.navbar {
     position: sticky;
@@ -25,7 +27,6 @@ ul.navbar {
 /* white borders */ 
 ul.navbar li {
     float: left;
-    border-right: 1px solid #bbb;
   }
 /* white text that is center aligned, suitable padding, in a block */
 ul.navbar li a {
@@ -34,6 +35,7 @@ ul.navbar li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 /* black when hovering over */
 ul.navbar li a:hover {
@@ -41,7 +43,7 @@ ul.navbar li a:hover {
 }
 /* blue when active */
 ul.navbar li a.active {
-    background-color: blueviolet;
+    background-color: #21a6cb;
 }
 
 .centered {
@@ -49,6 +51,18 @@ ul.navbar li a.active {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.logo{
+  display: inline-block;
+  vertical-align: middle;
+  height: 25px;
+  width: auto;
+  padding: 10px
+}
+
+body {
+  background-color: lightblue;
 }
 
 
