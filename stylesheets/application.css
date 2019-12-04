@@ -1,0 +1,20 @@
+h1 {
+    font-size: 4em;
+    padding-bottom: 1.75rem;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    text-align: center;
+    width: 100%;
+    position:absolute;
+    top:20%;
+  }
+
+.explanation {
+    margin: 0 auto;
+    position: relative;
+    background: #f2f2f2;
+}
+
+p {
+    padding: 20px
+}
