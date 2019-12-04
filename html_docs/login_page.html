@@ -4,10 +4,30 @@
         <meta charset="utf-8"/>
         <meta name="survey_page">
         <link rel = "stylesheet" href="../stylesheets/site_styling.css">
-        <link rel = "stylesheet" href="../stylesheets/survey_page.css">
+        <link rel = "stylesheet" href="../stylesheets/input_form.css">
        </head>
     <title>Bot-Or-Not</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
     <body>
-         
+        <img src = "../images/botornot.png" alt = "Bot Or Not Logo">  
+        <form action="/someurl" method="post">
+            <div class = "centered">
+                
+                <div class="container" style="background-color:#f1f1f1; max-width: 400px;">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+                
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                
+                    <button type="submit">Login</button>
+                    <button type="button" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
     </body>
 </html>

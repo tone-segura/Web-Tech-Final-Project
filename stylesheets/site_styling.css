@@ -1,3 +1,8 @@
+.content {
+  max-width: 960px;
+  margin:auto;
+}
+
 .footer {
   position: fixed;
   left: 0;
@@ -7,7 +12,6 @@
   color: white;
   text-align: center;
 }
-
 /* sticky navbar container with black */
 ul.navbar {
     position: sticky;
@@ -38,6 +42,13 @@ ul.navbar li a:hover {
 /* blue when active */
 ul.navbar li a.active {
     background-color: blueviolet;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 

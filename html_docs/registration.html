@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="survey_page">
+        <link rel = "stylesheet" href="../stylesheets/site_styling.css">
+        <link rel = "stylesheet" href="../stylesheets/survey_page.css">
+        <link rel = "stylesheet" href="../stylesheets/input_form.css">
+       </head>
+    <title>Bot-Or-Not</title>
+    <body>
+            <div class="container">
+                    <form action="">
+                      <div class="row">
+                        <!-- col-25 is column on left side for labels-->
+                        <div class="col-25">
+                          <label for="fname">First Name</label>
+                        </div>
+                        <div class="col-75">
+                          <!-- Uses placeholder for instructions-->
+                          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="lname">Last Name</label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                        </div>
+                      </div>
+                      <div class="row">
+                            <div class="col-25">
+                              <label for="minitial"> Middle Initial </label>
+                            </div>
+                            <div class="col-75">
+                              <input type="text" id="minitial" name="middleinitial" placeholder="Your middle initial..">
+                            </div>
+                          </div>
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="age">Age</label>
+                        </div>
+                        <div class="col-75">
+                            <input type = "text" id="age" name ="age" placeholder="Your age [>17]..">
+                        </div>
+                      </div>
+                      <div class="row">
+                            <div class="col-25">
+                              <label for="weight">Weight</label>
+                            </div>
+                            <div class="col-75">
+                                <input type = "text" id="weight" name ="weight" placeholder="Your weight [80-300]..">
+                            </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                        <input type="submit" value="Submit">
+                      </div>
+                    </form>
+                    <script type = "text/javascript" src = "../javascript_files/UserInfoHandler.js" ></script>
+                  </div>         
+    </body>
+</html>
