@@ -9,6 +9,7 @@ import java.util.Iterator;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Item;
 import com.amazonaws.services.dynamodbv2.document.ItemCollection;
@@ -28,7 +29,9 @@ public class Register extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException {  
         
-        response.setContentType("text/html");  
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
+  
         PrintWriter out = response.getWriter();  
                 
         String f=request.getParameter("fname");  
@@ -44,7 +47,7 @@ public class Register extends HttpServlet {
         try{  
             PutItemRequest putItemRequest = new putItemRequest()
                 .withTableName(tableName)
-                .withItem(attributeValues)
+                .withItem(attributeValues);
             PutItemResult putItemResult = amazonDynamoDB.putItem(putItemRequest);
         }catch (Exception e2) {System.out.println(e2);}  
                 
