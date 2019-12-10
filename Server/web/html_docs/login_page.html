@@ -9,23 +9,17 @@
        </head>
     <title>Bot-Or-Not</title>
     <body>
-        <img class="banner" src = "../images/botornot.png" alt = "Bot Or Not Logo">  
+        <img class="banner" src = "../images/botornot.png" alt = "Bot Or Not Logo">
         <form action="/someurl" method="post">
             <div class = "centered">
                 <div class="container" style="background-color:#f1f1f1; max-width: 400px;">
-                    <label for="fname"><b>First Name</b></label>
-                    <input type="text" placeholder="Enter Your First Name" name="fname" required>
-                    <label for="lname"><b>Last Name</b></label>
-                    <input type="text" placeholder="Enter Your Last Name" name="lname" required>
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Your Email" name="email" required>
                     <label for="uname"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username" name="uname" required>
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required>
-                    <div style = "text-align: center;">
-                        <button type="button" class="signupbtn" style="display:inline-block">Join Now</button>
-                    </div>
+                    <!--for now login button redirects to bot-or-not page-->
+                    <button type="submit" onclick="window.location.href='application.html';">Login</button>
+                    <button type="button" class="signupbtn" onclick="window.location.href ='registration.html';">Sign Up</button>
                 </div>
             </div>
         </form>
