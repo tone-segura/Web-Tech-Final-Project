@@ -1,56 +1,39 @@
-import java.io.*;  
-import java.sql.*;  
-import javax.servlet.ServletException;  
-import javax.servlet.http.*;  
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Iterator;
-
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.dynamodbv2.document.DynamoDB;
-import com.amazonaws.services.dynamodbv2.document.Item;
-import com.amazonaws.services.dynamodbv2.document.ItemCollection;
-import com.amazonaws.services.dynamodbv2.document.Page;
-import com.amazonaws.services.dynamodbv2.document.QueryOutcome;
-import com.amazonaws.services.dynamodbv2.document.Table;
-import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
-import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
-    
-public class Register extends HttpServlet {  
-
-    static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-        .withRegion(Regions.US_CENTRAL_1).build();
-    static DynamoDB dynamoDB = new DynamoDB(client);
-    static String tableName = "user_info";
-    Map<String, AttributeValue> attributeValues = new HashMap<>();
-    public void doPost(HttpServletRequest request, HttpServletResponse response)  
-            throws ServletException, IOException {  
-        
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Scanner;
+import java.sql.*;
   
-        PrintWriter out = response.getWriter();  
-                
+public class MyServlet extends javax.servlet.http.HttpServlet {
+    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+        String url = "jdbc:mariadb://bot-or-not.csugsk2tp4ra.us-east-1.rds.amazonaws.com:3306/bot-or-not";
+        String dbUser = "admin";
+        String password = "webtechclass";
+        String tableName = "user_info";
+
+        PrintWriter out = response.getWriter();   
         String f=request.getParameter("fname");  
         String l=request.getParameter("lname");  
         String e=request.getParameter("email");  
         String u=request.getParameter("uname");  
         String p=request.getParameter("psw");
-        attributeValues.put("first_name",new AttributeValue().withS(f));
-        attributeValues.put("last_name",new AttributeValue().withS(l));
-        attributeValues.put("email;",new AttributeValue().withS(e));
-        attributeValues.put("username",new AttributeValue().withS(u));
-        attributeValues.put("password",new AttributeValue().withS(p));
-        try{  
-            PutItemRequest putItemRequest = new putItemRequest()
-                .withTableName(tableName)
-                .withItem(attributeValues);
-            PutItemResult putItemResult = amazonDynamoDB.putItem(putItemRequest);
-        }catch (Exception e2) {System.out.println(e2);}  
-                
-        out.close();  
+
+        //not quite sure if this will work with the "password()" 
+        String insertForm = "INSERT INTO " + tableName + 
+                            " (user_id, first_name, last_name, email, password)" +
+                            " VALUES (" + f +", " + l + ", " + e + ", " + u + ", PASSWORD(" + p + "));"
+
+        try (Connection dbConnection = DriverManager.getConnection(url, dbUser, password)) {
+            System.out.println("Database connected!");
+            dbConnection.nativeSQL(insertForm);
+        } catch (SQLException e) {
+            System.out.print(e.toString());
+            throw new IllegalStateException("Cannot connect the database!", e);
+        }     
     }   
 }  
