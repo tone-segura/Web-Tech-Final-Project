@@ -2,11 +2,43 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Scanner;
+import java.sql.*;
 
 public class MyServlet extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+        String username = request.getParameter("uname");
 
+        // connect to twitter
+        URLConnection connection = new URL("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=jordanyonodev").openConnection();
+        connection.setRequestProperty("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAPB9AwEAAAAAw6tsoRJ6PYu0TXohrlNZFMev1H0%3DFKVNVdLEf3QogWdxGjJ96OEFEFYAu1qUbRowcHIuMZjnU7GjZ4");
+        InputStream twitterResponse = connection.getInputStream();
+
+        try (PrintWriter writer = response.getWriter()) {
+            try (Scanner scanner = new Scanner(twitterResponse)) {
+                String responseBody = scanner.useDelimiter("\\A").next();
+                writer.println(responseBody);
+            }
+        }
+
+        // connect to database
+        String url = "jdbc:mariadb://bot-or-not.csugsk2tp4ra.us-east-1.rds.amazonaws.com:3306/bot-or-not";
+        String dbUser = "admin";
+        String password = "webtechclass";
+
+        System.out.println("Connecting database...");
+
+        try (Connection dbConnection = DriverManager.getConnection(url, dbUser, password)) {
+            System.out.println("Database connected!");
+            dbConnection.nativeSQL("SELECT 1;");
+        } catch (SQLException e) {
+            System.out.print(e.toString());
+            throw new IllegalStateException("Cannot connect the database!", e);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
