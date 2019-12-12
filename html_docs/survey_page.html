@@ -19,128 +19,114 @@
         </ul>
         <div class="content" style="background-color:white;">
             <h1>How Well Did Bot-Or-Not Work?</h1> <hr>
+            <form>
+                <h2>Was the result accurate?</h2>
+                <label class="container"> Strongly Disagree
+                    <input type="radio"  name="accuracy" value="strongly_disagree">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Disagree
+                    <input type="radio" name="accuracy" value="disagree">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Neutral
+                    <input type="radio"  name="accuracy" value="neutral" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Agree
+                    <input type="radio" name="accuracy" value="agree">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Strongly Agree
+                    <input type="radio" name="accuracy" value="strongly_agree">
+                    <span class="checkmark"></span>
+                </label>
 
-            <h2>Was the result accurate?</h2>
-        
-            <form id="q1">
+                <h2>Will you be using Bot-Or-Not again?</h2>
                 <label class="container"> Strongly Disagree
-                    <input type="radio"  name="agreement" value="strongly_disagree">
+                    <input type="radio"  name="return" value="strongly_disagree">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Disagree
-                    <input type="radio" name="agreement" value="disagree">
+                    <input type="radio" name="return" value="disagree">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Neutral
-                    <input type="radio"  name="agreement" value="neutral" checked="checked">
+                    <input type="radio"  name="return" value="neutral" checked="checked">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Agree
-                    <input type="radio" name="agreement" value="agree">
+                    <input type="radio" name="return" value="agree">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Strongly Agree
-                    <input type="radio" name="agreement" value="strongly_agree">
+                    <input type="radio" name="return" value="strongly_agree">
                     <span class="checkmark"></span>
                 </label>
-            </form>
-    
-            <h2>Will you be using Bot-Or-Not again?</h2>
-        
-            <form id="q2">
-                <label class="container"> Strongly Disagree
-                    <input type="radio"  name="agreement" value="strongly_disagree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Disagree
-                    <input type="radio" name="agreement" value="disagree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Neutral
-                    <input type="radio"  name="agreement" value="neutral" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Agree
-                    <input type="radio" name="agreement" value="agree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Strongly Agree
-                    <input type="radio" name="agreement" value="strongly_agree">
-                    <span class="checkmark"></span>
-                </label>
-            </form>
-    
-            <h2>Would you recommend someone else to use Bot-Or-Not?</h2>
-        
-            <form id="q3">
-                <label class="container"> Strongly Disagree
-                    <input type="radio"  name="agreement" value="strongly_disagree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Disagree
-                    <input type="radio" name="agreement" value="disagree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Neutral
-                    <input type="radio"  name="agreement" value="neutral" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Agree
-                    <input type="radio" name="agreement" value="agree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Strongly Agree
-                    <input type="radio" name="agreement" value="strongly_agree">
-                    <span class="checkmark"></span>
-                </label>
-            </form>
-            
-            <h2>Would you return to this website if we improved the tool?</h2>
-        
-            <form id="q4">
-                <label class="container"> Strongly Disagree
-                    <input type="radio"  name="agreement" value="strongly_disagree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Disagree
-                    <input type="radio" name="agreement" value="disagree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Neutral
-                    <input type="radio"  name="agreement" value="neutral" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Agree
-                    <input type="radio" name="agreement" value="agree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Strongly Agree
-                    <input type="radio" name="agreement" value="strongly_agree">
-                    <span class="checkmark"></span>
-                </label>
-            </form>
 
-            <h2>Is the website functional?</h2>
-        
-            <form id="q5">
+                <h2>Would you recommend someone else to use Bot-Or-Not?</h2>
                 <label class="container"> Strongly Disagree
-                    <input type="radio"  name="agreement" value="strongly_disagree">
+                    <input type="radio"  name="recommend" value="strongly_disagree">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Disagree
-                    <input type="radio" name="agreement" value="disagree">
+                    <input type="radio" name="recommend" value="disagree">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Neutral
-                    <input type="radio"  name="agreement" value="neutral" checked="checked">
+                    <input type="radio"  name="recommend" value="neutral" checked="checked">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Agree
-                    <input type="radio" name="agreement" value="agree">
+                    <input type="radio" name="recommend" value="agree">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Strongly Agree
-                    <input type="radio" name="agreement" value="strongly_agree">
+                    <input type="radio" name="recommend" value="strongly_agree">
+                    <span class="checkmark"></span>
+                </label>
+
+                <h2>Would you return to this website if we improved the tool?</h2>
+                <label class="container"> Strongly Disagree
+                    <input type="radio"  name="improve" value="strongly_disagree">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Disagree
+                    <input type="radio" name="improve" value="disagree">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Neutral
+                    <input type="radio"  name="improve" value="neutral" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Agree
+                    <input type="radio" name="improve" value="agree">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Strongly Agree
+                    <input type="radio" name="improve" value="strongly_agree">
+                    <span class="checkmark"></span>
+                </label>
+                
+                <h2>Is the website functional?</h2>
+                <label class="container"> Strongly Disagree
+                    <input type="radio"  name="functional" value="strongly_disagree">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Disagree
+                    <input type="radio" name="functional" value="disagree">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Neutral
+                    <input type="radio"  name="functional" value="neutral" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Agree
+                    <input type="radio" name="functional" value="agree">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Strongly Agree
+                    <input type="radio" name="functional" value="strongly_agree">
                     <span class="checkmark"></span>
                 </label>
             </form>
