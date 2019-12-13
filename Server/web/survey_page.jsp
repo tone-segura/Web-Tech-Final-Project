@@ -26,7 +26,7 @@
 
     <h2>Was the result accurate?</h2>
 
-    <form>
+    <form method="post" action = "SurveyResults">
         <label class="container"> Strongly Disagree
             <input type="radio"  name="accuracy" value="strongly_disagree">
             <span class="checkmark"></span>
@@ -91,7 +91,6 @@
             <input type="radio" name="recommend" value="strongly_agree">
             <span class="checkmark"></span>
         </label>
-        <<<<<<< HEAD:html_docs/survey_page.html
 
         <h2>Would you return to this website if we improved the tool?</h2>
         <label class="container"> Strongly Disagree
@@ -136,56 +135,6 @@
             <input type="radio" name="functional" value="strongly_agree">
             <span class="checkmark"></span>
         </label>
-
-
-        <h2>Would you return to this website if we improved the tool?</h2>
-
-        <label class="container"> Strongly Disagree
-            <input type="radio"  name="improvement" value="strongly_disagree">
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Disagree
-            <input type="radio" name="improvement" value="disagree">
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Neutral
-            <input type="radio"  name="improvement" value="neutral" checked="checked">
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Agree
-            <input type="radio" name="improvement" value="agree">
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Strongly Agree
-            <input type="radio" name="improvement" value="strongly_agree">
-            <span class="checkmark"></span>
-        </label>
-
-
-        <h2>Is the website functional?</h2>
-
-
-        <label class="container"> Strongly Disagree
-            <input type="radio"  name="functionality" value="strongly_disagree">
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Disagree
-            <input type="radio" name="functionality" value="disagree">
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Neutral
-            <input type="radio"  name="functionality" value="neutral" checked="checked">
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Agree
-            <input type="radio" name="functionality" value="agree">
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Strongly Agree
-            <input type="radio" name="functionality" value="strongly_agree">
-            <span class="checkmark"></span>
-        </label>
-    </form>
 </div>
 <div class="footer">
     <p>Created by Antonio Segura and Jordan Yono</p>
