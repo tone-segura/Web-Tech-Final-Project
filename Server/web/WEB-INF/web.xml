@@ -19,6 +19,11 @@
         <servlet-class>Authenticate</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>SurveyResults</servlet-name>
+        <servlet-class>SurveyResults</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>MyServlet</servlet-name>
         <url-pattern>/MyServlet</url-pattern>
@@ -32,6 +37,11 @@
     <servlet-mapping>
         <servlet-name>Authenticate</servlet-name>
         <url-pattern>/Authenticate</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SurveyResults</servlet-name>
+        <url-pattern>/SurveyResults</url-pattern>
     </servlet-mapping>
 
 

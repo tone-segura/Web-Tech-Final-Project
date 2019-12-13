@@ -22,8 +22,8 @@
             <h1>How Well Did Bot-Or-Not Work?</h1> <hr>
 
             <h2>Was the result accurate?</h2>
-        
-            <form>
+
+            <form method="post" action = "SurveyResults">
                 <label class="container"> Strongly Disagree
                     <input type="radio"  name="accuracy" value="strongly_disagree">
                     <span class="checkmark"></span>
@@ -33,7 +33,7 @@
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Neutral
-                    <input type="radio"  name="accuracy" value="neutral" checked="checked">
+                    <input type="radio"  name="accuracy" value="neutral">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Agree
@@ -55,7 +55,7 @@
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Neutral
-                    <input type="radio"  name="return" value="neutral" checked="checked">
+                    <input type="radio"  name="return" value="neutral">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Agree
@@ -77,7 +77,7 @@
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Neutral
-                    <input type="radio"  name="recommend" value="neutral" checked="checked">
+                    <input type="radio"  name="recommend" value="neutral">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Agree
@@ -88,7 +88,6 @@
                     <input type="radio" name="recommend" value="strongly_agree">
                     <span class="checkmark"></span>
                 </label>
-<<<<<<< HEAD:html_docs/survey_page.html
 
                 <h2>Would you return to this website if we improved the tool?</h2>
                 <label class="container"> Strongly Disagree
@@ -100,7 +99,7 @@
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Neutral
-                    <input type="radio"  name="improve" value="neutral" checked="checked">
+                    <input type="radio"  name="improve" value="neutral">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Agree
@@ -111,7 +110,7 @@
                     <input type="radio" name="improve" value="strongly_agree">
                     <span class="checkmark"></span>
                 </label>
-                
+
                 <h2>Is the website functional?</h2>
                 <label class="container"> Strongly Disagree
                     <input type="radio"  name="functional" value="strongly_disagree">
@@ -122,7 +121,7 @@
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Neutral
-                    <input type="radio"  name="functional" value="neutral" checked="checked">
+                    <input type="radio"  name="functional" value="neutral">
                     <span class="checkmark"></span>
                 </label>
                 <label class="container">Agree
@@ -131,60 +130,10 @@
                 </label>
                 <label class="container">Strongly Agree
                     <input type="radio" name="functional" value="strongly_agree">
-=======
-           
-            
-            <h2>Would you return to this website if we improved the tool?</h2>
-        
-       
-                <label class="container"> Strongly Disagree
-                    <input type="radio"  name="improvement" value="strongly_disagree">
                     <span class="checkmark"></span>
                 </label>
-                <label class="container">Disagree
-                    <input type="radio" name="improvement" value="disagree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Neutral
-                    <input type="radio"  name="improvement" value="neutral" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Agree
-                    <input type="radio" name="improvement" value="agree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Strongly Agree
-                    <input type="radio" name="improvement" value="strongly_agree">
-                    <span class="checkmark"></span>
-                </label>
-          
-
-            <h2>Is the website functional?</h2>
-        
-        
-                <label class="container"> Strongly Disagree
-                    <input type="radio"  name="functionality" value="strongly_disagree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Disagree
-                    <input type="radio" name="functionality" value="disagree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Neutral
-                    <input type="radio"  name="functionality" value="neutral" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Agree
-                    <input type="radio" name="functionality" value="agree">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="container">Strongly Agree
-                    <input type="radio" name="functionality" value="strongly_agree">
->>>>>>> 3f6c5e775a680970a38c8ef37048b76f1a28941e:Server/web/html_docs/survey_page.html
-                    <span class="checkmark"></span>
-                </label>
+                <button type="submit" style="vertical-align: middle;display: inline;">Submit</button>
             </form>
-        
         </div>
         <div class="footer">
             <p>Created by Antonio Segura and Jordan Yono</p>

@@ -25,11 +25,11 @@
         <div class = "explanation">
             <p>Type the screen name (or "@") into the box below. We'll let you know if we think the account is a bot or human and let you know how certain we are!</p>
         </div>
-        <div>
+        <div style = "max-width: 100%">
             <form method="Post" action="MyServlet">
-            <input type="text" placeholder="@ScreenName" name="uname" required style="float:left; width:82%;">
-            <button type="submit" style="vertical-align: middle;display: inline;">Submit</button>
-        </form>
+                <input type="text" placeholder="@ScreenName" name="uname" required style="float:left; width:82%;">
+                <button type="submit" style="vertical-align: middle;display: inline; float: right;">Submit</button>
+            </form>
         </div>
     </div>
 </div>

@@ -36,7 +36,7 @@
             <span class="checkmark"></span>
         </label>
         <label class="container">Neutral
-            <input type="radio"  name="accuracy" value="neutral" checked="checked">
+            <input type="radio"  name="accuracy" value="neutral">
             <span class="checkmark"></span>
         </label>
         <label class="container">Agree
@@ -58,7 +58,7 @@
             <span class="checkmark"></span>
         </label>
         <label class="container">Neutral
-            <input type="radio"  name="return" value="neutral" checked="checked">
+            <input type="radio"  name="return" value="neutral">
             <span class="checkmark"></span>
         </label>
         <label class="container">Agree
@@ -80,7 +80,7 @@
             <span class="checkmark"></span>
         </label>
         <label class="container">Neutral
-            <input type="radio"  name="recommend" value="neutral" checked="checked">
+            <input type="radio"  name="recommend" value="neutral">
             <span class="checkmark"></span>
         </label>
         <label class="container">Agree
@@ -102,7 +102,7 @@
             <span class="checkmark"></span>
         </label>
         <label class="container">Neutral
-            <input type="radio"  name="improve" value="neutral" checked="checked">
+            <input type="radio"  name="improve" value="neutral">
             <span class="checkmark"></span>
         </label>
         <label class="container">Agree
@@ -124,7 +124,7 @@
             <span class="checkmark"></span>
         </label>
         <label class="container">Neutral
-            <input type="radio"  name="functional" value="neutral" checked="checked">
+            <input type="radio"  name="functional" value="neutral">
             <span class="checkmark"></span>
         </label>
         <label class="container">Agree
@@ -135,6 +135,8 @@
             <input type="radio" name="functional" value="strongly_agree">
             <span class="checkmark"></span>
         </label>
+        <button type="submit" style="vertical-align: middle;display: inline;">Submit</button>
+    </form>
 </div>
 <div class="footer">
     <p>Created by Antonio Segura and Jordan Yono</p>

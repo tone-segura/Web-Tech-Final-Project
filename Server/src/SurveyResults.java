@@ -24,13 +24,11 @@ public class SurveyResults extends javax.servlet.http.HttpServlet {
             Connection con = Dbconnection.initializeDatabase();
             Statement stmt = con.createStatement();
             stmt.executeUpdate(insertForm);
-            response.sendRedirect(request.getContextPath()+ "/index.jsp");
             con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
             System.err.println(ex.getMessage());
-            response.sendRedirect(request.getContextPath()+ "/register.jsp");
         }
-
+        response.sendRedirect(request.getContextPath()+ "/application.jsp");
     }
 }
