@@ -12,7 +12,7 @@
 <body>
 <ul class="navbar">
     <li><img class = "logo" src = "./images/botornot.png"></li>
-    <li><a class="active" href = "./html_docs/application.html">Bot-Or-Not</a></li>
+    <li><a class="active" href = "index.jsp">Bot-Or-Not</a></li>
     <li><a href="./html_docs/application_information.html">About Bot-Or-Not</a></li>
     <li><a href = "./html_docs/survey_page.html">Satisfaction Survey</a></li>
     <li><a href = "./html_docs/twitter_bots.html">About Twitter Bots</a></li>
@@ -24,12 +24,11 @@
         <div class = "explanation">
             <p>Type the screen name (or "@") into the box below. We'll let you know if we think the account is a bot or human and let you know how certain we are!</p>
         </div>
-        <div>
-            <form method="Post" action="MyServlet">
-            <input type="text" placeholder="@ScreenName" name="uname" required style="float:left; width:82%;">
-            <button type="submit" style="vertical-align: middle;display: inline;">Submit</button>
+        <form method="Post" action="MyServlet">
+            <input type="text" placeholder="@ScreenName" name="uname" required style="float:left; max-width:80%;">
+            <button type="submit" style="vertical-align: middle;display: inline;float:right;">Submit</button>
         </form>
-        </div>
+    
     </div>
 </div>
 <div class="footer">
