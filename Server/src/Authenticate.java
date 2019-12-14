@@ -22,7 +22,7 @@ public class Authenticate extends javax.servlet.http.HttpServlet {
                 response.sendRedirect(request.getContextPath()+ "/index.jsp");
             }
             else {
-                Cookie user = new Cookie("uname", username);
+                Cookie user = new Cookie("username", username);
                 response.addCookie(user);
                 response.sendRedirect(request.getContextPath()+ "/application.jsp");
             }

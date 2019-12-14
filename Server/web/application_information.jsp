@@ -16,7 +16,7 @@
     <li><a class="active" href="./application_information.jsp">About Bot-Or-Not</a></li>
     <li><a href = "./survey_page.jsp">Satisfaction Survey</a></li>
     <li><a href = "./twitter_bots.jsp">About Twitter Bots</a></li>
-    <li style="float: right"><a href = "./logout.jsp">Logout, <%=request.getParameter("uname")%>?</a></li>
+    <li style="float: right"><a href = "./logout.jsp">Logout, <%=request.getParameter("username")%>?</a></li>
 </ul>
 <div class="content" style="background-color:white;">
     <h1>About Bot-Or-Not</h1> <hr>

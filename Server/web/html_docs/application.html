@@ -24,10 +24,15 @@
                 <div class = "explanation">
                     <p>Type the screen name (or "@") into the box below. We'll let you know if we think the account is a bot or human and let you know how certain we are!</p>
                 </div>
-                <div>
-                    <input type="text" placeholder="@ScreenName" name="uname" required style="float:left; width:82%;">   
-                    <button type="submit" style="vertical-align: middle;display: inline;">Submit</button>
-                </div>
+                <form method="Post" action="MyServlet">
+                    <input type="text" placeholder="@ScreenName" name="uname" required style="float:left; width:80%;">
+                    <button type="submit" style="vertical-align: middle;display: inline; float: right;">Submit</button>
+                    <br><br><br>
+                    <label>
+                        Select if the account is a bot<input type = "radio" name ="is_bot" value = "True">
+                    </label>
+
+                </form>
             </div>
         </div>
         <div class="footer">
