@@ -3,7 +3,10 @@ import Helpers.DatabaseConnection;
 import Helpers.Twitter.TimelineAttributesHandler;
 import Helpers.Twitter.TimelineAttributesModel;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 
@@ -11,7 +14,7 @@ import static Helpers.Twitter.TimelineAttributesModel.getTimelineAttributesObjec
 
 
 public class ProcessBotOrNot extends javax.servlet.http.HttpServlet {
-    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws IOException {
+    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws IOException, ServletException {
         String screenName = request.getParameter("uname");
         String isBot = request.getParameter("isBot");
 
@@ -112,14 +115,23 @@ public class ProcessBotOrNot extends javax.servlet.http.HttpServlet {
 
             stmt.execute();
 
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/application.jsp");
+            requestDispatcher.include(request, response);
+
+            PrintWriter out = response.getWriter();
+            out.print("<p align='center' > Success! We have entered you information into the database. </p>");
+
             con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new IllegalStateException("Error connecting the database ", e);
-            // compare user to
         } catch (Exception e) {
             e.printStackTrace();
+            System.err.println(e.getMessage());
+
+            PrintWriter out = response.getWriter();
+
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/application.jsp");
+            requestDispatcher.include(request, response);
+
+            out.print("<p align='center' > Uh Oh, it looks like there was an error adding you to the database.</p>");
         }
     }
 }
