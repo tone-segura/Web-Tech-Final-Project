@@ -26,7 +26,7 @@
 
     <h2>Was the result accurate?</h2>
 
-    <form method="post" action = "SurveyResults">
+    <form method="POST" action = "SurveyResults">
         <label class="container"> Strongly Disagree
             <input type="radio"  name="accuracy" value="strongly_disagree">
             <span class="checkmark"></span>

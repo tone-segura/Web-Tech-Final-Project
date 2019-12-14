@@ -23,7 +23,6 @@
         <servlet-name>SurveyResults</servlet-name>
         <servlet-class>SurveyResults</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>ProcessBotOrNot</servlet-name>
         <url-pattern>/ProcessBotOrNot</url-pattern>
@@ -43,6 +42,5 @@
         <servlet-name>SurveyResults</servlet-name>
         <url-pattern>/SurveyResults</url-pattern>
     </servlet-mapping>
-
 
 </web-app>

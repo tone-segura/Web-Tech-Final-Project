@@ -1,7 +1,7 @@
 # Dockerfile
 FROM tomcat:latest
 
-ADD Server/out/artifacts/Server_war/Server_war.war /usr/local/tomcat/webapps/
+ADD Server/out/artifacts/bot-or-not/not-or-not.war /usr/local/tomcat/webapps/
 
 EXPOSE 8080
 

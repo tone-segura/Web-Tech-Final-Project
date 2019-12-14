@@ -18,12 +18,7 @@ public class TimelineAttributesHandler {
 
         // parse response
         try (Scanner scanner = new Scanner(twitterResponse)) {
-            System.out.println("grapefruit");
-
-            String obj = scanner.useDelimiter("\\A").next();
-
-            System.out.println(obj);
-            return obj;
+            return scanner.useDelimiter("\\A").next();
         }
     }
 

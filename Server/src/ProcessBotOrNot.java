@@ -90,10 +90,7 @@ public class ProcessBotOrNot extends javax.servlet.http.HttpServlet {
 
             // Use a prepared statement to avoid sql injection
             PreparedStatement stmt = con.prepareStatement("INSERT INTO user_attributes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
-            System.out.println(isBot);
-            System.out.println(stmt);
-            System.out.println(stmt.toString());
-            System.out.println(tams[0].getUserObject().getUserId());
+
             // Set the query param values
             stmt.setLong(1, tams[0].getUserObject().getUserId()); // user_id
             stmt.setInt(2, tams[0].getUserObject().getStatusesCount()); //num_tweets
@@ -122,6 +119,7 @@ public class ProcessBotOrNot extends javax.servlet.http.HttpServlet {
             out.print("<p align='center' > Success! We have entered you information into the database. </p>");
 
             con.close();
+//            Weka.classify(tams[0].getUserObject().getUserId());
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
