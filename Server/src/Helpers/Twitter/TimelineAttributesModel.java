@@ -3,8 +3,6 @@ package Helpers.Twitter;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
-
 public class TimelineAttributesModel {
 
     @SerializedName("id")
@@ -37,11 +35,6 @@ public class TimelineAttributesModel {
         return UserObject;
     }
 
-    public int getFavoriteCount() {
-        return favoriteCount;
-
-    }
-
     public int getRetweetCount() {
         return retweetCount;
     }
@@ -62,38 +55,44 @@ public class TimelineAttributesModel {
         return entities;
     }
 
+    public float getFavoriteCount() {
+        return favoriteCount;
+    }
+
     // nested user object
     public static class UserObject {
         @SerializedName("id")
         long userId;
         @SerializedName("friend_count")
-        int friendCount;
+        float friendCount;
         @SerializedName("followers_count")
-        String followersCount;
+        float followersCount;
         @SerializedName("listed_count")
-        String listedCount;
+        int listedCount;
         @SerializedName("verified")
         String verified;
         @SerializedName("geo_enabled")
         String geoEnabled;
-        @SerializedName("protected")
-        String protectedUser;
         @SerializedName("profile_use_background_image")
         String profileUseBackgroundImage;
+        @SerializedName("statuses_count")
+        int statusesCount;
+        @SerializedName("favourites_count")
+        int favoriteCount;
 
         public long getUserId() {
             return userId;
         }
 
-        public int getFriendCount() {
+        public float getFriendCount() {
             return friendCount;
         }
 
-        public String getFollowersCount() {
+        public float getFollowersCount() {
             return followersCount;
         }
 
-        public String getListedCount() {
+        public int getListedCount() {
             return listedCount;
         }
 
@@ -105,14 +104,17 @@ public class TimelineAttributesModel {
             return geoEnabled;
         }
 
-        public String getProtectedUser() {
-            return protectedUser;
-        }
-
         public String getProfileUseBackgroundImage() {
             return profileUseBackgroundImage;
         }
 
+        public int getStatusesCount() {
+            return statusesCount;
+        }
+
+        public int getFavoriteCount(){
+            return favoriteCount;
+        }
     }
 
     // nested entities object
@@ -131,13 +133,10 @@ public class TimelineAttributesModel {
         public Object[] getUserMentions() {
             return userMentions;
         }
+
         // there's some inconsistency in the twitter api with these. it might also be url{url[url{}]}? in the json
         public Object[] getUrls() {
             return urls;
         }
-    }
-
-    public static class DatabaseAttributesModel {
-
     }
 }

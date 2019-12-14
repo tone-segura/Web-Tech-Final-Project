@@ -5,8 +5,8 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>MyServlet</servlet-name>
-        <servlet-class>MyServlet</servlet-class>
+        <servlet-name>ProcessBotOrNot</servlet-name>
+        <servlet-class>ProcessBotOrNot</servlet-class>
     </servlet>
 
     <servlet>
@@ -25,8 +25,8 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>MyServlet</servlet-name>
-        <url-pattern>/MyServlet</url-pattern>
+        <servlet-name>ProcessBotOrNot</servlet-name>
+        <url-pattern>/ProcessBotOrNot</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

@@ -10,9 +10,10 @@ import java.text.SimpleDateFormat;
 import static Helpers.Twitter.TimelineAttributesModel.getTimelineAttributesObject;
 
 
-public class MyServlet extends javax.servlet.http.HttpServlet {
+public class ProcessBotOrNot extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws IOException {
         String screenName = request.getParameter("uname");
+        String isBot = request.getParameter("isBot");
 
         try {
             // reach out to the twitter api
@@ -20,16 +21,15 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
 
             // pass the JSON to the timeline model to set values for the entire array mapped to our models
             TimelineAttributesModel[] tams = getTimelineAttributesObject(userTimeline);
-            int hashtagCount = 0, userMentionsCount = 0,
+            float hashtagCount = 0, userMentionsCount = 0,
                     urlCount = 0, retweetCount = 0, quoteCount = 0,
-                    numFavorites = 0, numRetweets = 0;
+                    numFavorites = 0, numRetweets = 0, tweetCount = 0;
 
             long[] varianceList = new long[tams.length];
 
-            for (int i = 0; i < tams.length; i++) {
-                // instantiate our object
-                TimelineAttributesModel timelineAttributesModel = tams[i];
+            tweetCount = tams.length;
 
+            for (int i = 0; i < tams.length; i++) {
                 numFavorites += tams[i].getFavoriteCount();
                 numRetweets += tams[i].getRetweetCount();
 
@@ -57,11 +57,6 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
 
                     try {
                         SimpleDateFormat formatter = new SimpleDateFormat("EEE MMM d kk:mm:ss Z yyyy");
-                        ;
-                        // the data is ordered by created_at DESC, so prev is +1
-//                        curDate = (Date) formatter.parse(tams[i].getCreatedAt());
-//                        prevDate = formatter.parse(tams[i + 1].getCreatedAt());
-//                        nextDate = formatter.parse(tams[i - 1].getCreatedAt());
 
                         long currentTime = formatter.parse(tams[i].getCreatedAt()).getTime();
                         long prevTime = formatter.parse(tams[i + 1].getCreatedAt()).getTime();
@@ -76,23 +71,49 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
                     }
                 }
             }
+            // calulate the mean/variance
+            double mean = 0.0;
+            for (double l : varianceList) {
+                mean += l;
+            }
+            mean /= varianceList.length;
+            double variance = 0.0;
+            for (long l : varianceList) {
+                variance += ((double) l - mean) * (l - mean);
+            }
 
             // Initialize a db connection
             Connection con = DatabaseConnection.initializeDatabase();
 
-            // Use a prepared statement to avoid sql injection and encrypt the password.
-            String hashedPassword = Encryption.encryptPassword("password");
-            PreparedStatement stmt = con.prepareStatement("SELECT * FROM user_accounts WHERE username =?");
-
+            // Use a prepared statement to avoid sql injection
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO user_attributes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+            System.out.println(isBot);
+            System.out.println(stmt);
+            System.out.println(stmt.toString());
+            System.out.println(tams[0].getUserObject().getUserId());
             // Set the query param values
-            stmt.setString(1, "beefy");
-            // stmt.setString(2, hashedPassword);
+            stmt.setLong(1, tams[0].getUserObject().getUserId()); // user_id
+            stmt.setInt(2, tams[0].getUserObject().getStatusesCount()); //num_tweets
+            stmt.setFloat(3, retweetCount / tweetCount); //retweet_ratio
+            stmt.setFloat(4, hashtagCount / tweetCount); // hashtag_ratio
+            stmt.setFloat(5, quoteCount / tweetCount); //quote_ratio
+            stmt.setFloat(6, numFavorites / tweetCount);
+            stmt.setFloat(7, numRetweets / tweetCount);
+            stmt.setFloat(8, userMentionsCount / tweetCount);
+            stmt.setFloat(9, tams[0].getUserObject().getFriendCount() / tams[0].getUserObject().getFollowersCount());
+            stmt.setFloat(10, urlCount / tweetCount);
+            stmt.setInt(11, tams[0].getUserObject().getListedCount());
+            stmt.setString(12, tams[0].getUserObject().getVerified());
+            stmt.setString(13, tams[0].getUserObject().getGeoEnabled());
+            stmt.setString(14, tams[0].getUserObject().getProfileUseBackgroundImage());
+            stmt.setInt(15, tams[0].getUserObject().getFavoriteCount());
+            stmt.setString(16, Double.toString(variance));
+            stmt.setString(17, isBot);
 
-            ResultSet resultSet = stmt.executeQuery();
+            stmt.execute();
 
-            while (resultSet.next()) {
-                System.out.println(resultSet.getLong("user_id"));
-            }
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
             throw new IllegalStateException("Error connecting the database ", e);
