@@ -22,7 +22,10 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
             TimelineAttributesModel[] tam = timelineAttributesModel.getTimelineAttributesObject(userTimeline);
             System.out.println();
             for (TimelineAttributesModel model : tam){
+                System.out.println(model);
                 System.out.println(model.getUserId());
+                TimelineAttributesModel.UserObject userObject = new TimelineAttributesModel.UserObject();
+                System.out.println(model.getUserObject());
             }
             System.out.println("prayers");
           //  System.out.println(Arrays.toString(timelineAttributesModel.getTimelineAttributesObject(userTimeline.get(0))));
