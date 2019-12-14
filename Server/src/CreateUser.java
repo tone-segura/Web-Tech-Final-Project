@@ -1,33 +1,58 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
-import com.dbconnection.Dbconnection;
+
+import Helpers.Encryption;
+import Helpers.DatabaseConnection;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+
+// Todo a future state here is to automatically log the user in after account creation
 public class CreateUser extends javax.servlet.http.HttpServlet {
-    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws IOException {
-        String tableName = "user_info";
+    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws IOException, ServletException {
 
-        String f=request.getParameter("fname");
-        String l=request.getParameter("lname");
-        String e=request.getParameter("email");
-        String u=request.getParameter("uname");
-        String p=request.getParameter("psw");
+        String username = request.getParameter("uname");
+        // Don't use raw password on insert.
+        String password = request.getParameter("psw");
+        String firstName = request.getParameter("fname");
+        String lastName = request.getParameter("lname");
+        String email = request.getParameter("email");
 
-        //not quite sure if this will work with the "password()"
-        String insertForm = "INSERT INTO " + tableName +
-                            " (username, first_name, last_name, email, password)" +
-                            " VALUES (" + f +", " + l + ", " + e + ", " + "," + p + "));";
+        try {
+            // Initialize a db connection
+            Connection con = DatabaseConnection.initializeDatabase();
 
-       try {
-           Connection con = Dbconnection.initializeDatabase();
-           Statement stmt = con.createStatement();
-           stmt.executeUpdate(insertForm);
-           response.sendRedirect(request.getContextPath()+ "/index.jsp");
-           con.close();
-       } catch (Exception ex) {
-           ex.printStackTrace();
-           System.err.println(ex.getMessage());
-           response.sendRedirect(request.getContextPath()+ "/register.jsp");
-       }
+            // Use a prepared statement to avoid sql injection and encrypt the password.
+            String hashedPassword = Encryption.encryptPassword(password);
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO user_accounts VALUES (?,?,?,?,?)");
+
+            // Set the query param values
+            stmt.setString(1, username);
+            stmt.setString(2, hashedPassword);
+            stmt.setString(3, firstName);
+            stmt.setString(4, lastName);
+            stmt.setString(5, email);
+
+            stmt.execute();
+
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            con.close();
+        } catch (SQLIntegrityConstraintViolationException ex) {
+            ex.printStackTrace();
+            System.err.println(ex.getMessage());
+
+            PrintWriter out = response.getWriter();
+
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/register.jsp");
+            requestDispatcher.include(request, response);
+
+            out.print("<p align='center' > Uh Oh, it looks like that email or username already exists.</p>");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.err.println(ex.getMessage());
+            response.sendRedirect(request.getContextPath() + "/register.jsp");
+        }
 
     }
 }

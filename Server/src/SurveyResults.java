@@ -1,7 +1,6 @@
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.*;
-import com.dbconnection.Dbconnection;
+import Helpers.DatabaseConnection;
 public class SurveyResults extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws IOException {
         String tableName = "survey_results";
@@ -21,7 +20,7 @@ public class SurveyResults extends javax.servlet.http.HttpServlet {
                 " VALUES (" + u +", " + a + ", " + ret + ", " + r + ", " + i + ", " + f+ ");";
 
         try {
-            Connection con = Dbconnection.initializeDatabase();
+            Connection con = DatabaseConnection.initializeDatabase();
             Statement stmt = con.createStatement();
             stmt.executeUpdate(insertForm);
             con.close();
