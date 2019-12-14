@@ -118,21 +118,21 @@ public class TimelineAttributesModel {
     // nested entities object
     public static class Entities {
         @SerializedName("hastags")
-        String[] hastags;
+        Object[] hastags;
         @SerializedName("user_mentions")
-        String[] userMentions;
+        Object[] userMentions;
         @SerializedName("urls")
-        String[] urls;
+        Object[] urls;
 
-        public String[] getHastags() {
+        public Object[] getHastags() {
             return hastags;
         }
 
-        public String[] getUserMentions() {
+        public Object[] getUserMentions() {
             return userMentions;
         }
-
-        public String[] getUrls() {
+        // there's some inconsistency in the twitter api with these. it might also be url{url[url{}]}? in the json
+        public Object[] getUrls() {
             return urls;
         }
     }
