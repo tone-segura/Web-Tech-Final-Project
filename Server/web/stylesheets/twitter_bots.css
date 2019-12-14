@@ -1,0 +1,26 @@
+.column {
+    float:left;
+    height: auto;
+    margin-bottom:51px;
+    padding-top: 30px;
+    overflow:hidden;
+}
+
+.left, .right {
+    width: 23%;
+    margin-bottom:0;
+}
+
+.middle {
+    width:50%;
+    background-color: white;
+    padding-top: 50px;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: 100%;
+}
+
+.i {
+    width:100%;
+}
+

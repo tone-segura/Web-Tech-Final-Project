@@ -1,2 +1,5 @@
 /.idea
 /Server/out
+/lib
+/mysql-test
+
