@@ -3,38 +3,71 @@ package Helpers.Twitter;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 public class TimelineAttributesModel {
+
     @SerializedName("id")
     long id;
-
-    public UserObject getUserObject() {
-        return UserObject;
-    }
-
     @SerializedName("user")
     UserObject UserObject;
-//    int numTweets;
-//    int listedCount;
-//    int favouritesCount;
-//    float retweetRatio, hashtagRatio, quoteRatio, tweetFavoriteRatio, tweetRetweetRatio, mentionRatio, friendFollowerRatio, urlRatio;
-    String verified, geoEnabled, protectedUser, profileUsesBackgroundImage, tweetFrequencyVariance, isBot;
+    @SerializedName("favorite_count")
+    int favoriteCount;
+    @SerializedName("retweet_count")
+    int retweetCount;
+    @SerializedName("text")
+    String text;
+    @SerializedName("is_quote_status")
+    boolean isQuoteStatus;
+    @SerializedName("created_at")
+    String createdAt;
+    @SerializedName("entities")
+    Entities entities;
 
-    public TimelineAttributesModel[] getTimelineAttributesObject(String twitterTimeline) {
+    public static TimelineAttributesModel[] getTimelineAttributesObject(String twitterTimeline) {
         Gson gson = new Gson();
-
-        TimelineAttributesModel[] tamArray = gson.fromJson(twitterTimeline, TimelineAttributesModel[].class);
-        return  tamArray;
+        return gson.fromJson(twitterTimeline, TimelineAttributesModel[].class);
     }
 
     public long getId() {
         return id;
     }
 
-    public static class UserObject{
+    public UserObject getUserObject() {
+        return UserObject;
+    }
+
+    public int getFavoriteCount() {
+        return favoriteCount;
+
+    }
+
+    public int getRetweetCount() {
+        return retweetCount;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public boolean isQuoteStatus() {
+        return isQuoteStatus;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public Entities getEntities() {
+        return entities;
+    }
+
+    // nested user object
+    public static class UserObject {
         @SerializedName("id")
         long userId;
         @SerializedName("friend_count")
-        String friendCount;
+        int friendCount;
         @SerializedName("followers_count")
         String followersCount;
         @SerializedName("listed_count")
@@ -47,14 +80,12 @@ public class TimelineAttributesModel {
         String protectedUser;
         @SerializedName("profile_use_background_image")
         String profileUseBackgroundImage;
-        @SerializedName("favourites_count")
-        String favouritesCount;
 
         public long getUserId() {
             return userId;
         }
 
-        public String getFriendCount() {
+        public int getFriendCount() {
             return friendCount;
         }
 
@@ -82,8 +113,31 @@ public class TimelineAttributesModel {
             return profileUseBackgroundImage;
         }
 
-        public String getFavouritesCount() {
-            return favouritesCount;
+    }
+
+    // nested entities object
+    public static class Entities {
+        @SerializedName("hastags")
+        String[] hastags;
+        @SerializedName("user_mentions")
+        String[] userMentions;
+        @SerializedName("urls")
+        String[] urls;
+
+        public String[] getHastags() {
+            return hastags;
         }
+
+        public String[] getUserMentions() {
+            return userMentions;
+        }
+
+        public String[] getUrls() {
+            return urls;
+        }
+    }
+
+    public static class DatabaseAttributesModel {
+
     }
 }
