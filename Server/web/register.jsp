@@ -13,7 +13,7 @@
 <body>
 <img class="banner" src = "./images/botornot.png" alt = "Bot Or Not Logo">
 <div class = "centered">
-<form action="createUser" method="post">
+<form action="CreateUser" method="post">
         <div class="container" style="background-color:#f1f1f1; max-width: 400px;">
             <label><b>First Name</b>
                 <input type="text" placeholder="Enter Your First Name" name="fname" required>

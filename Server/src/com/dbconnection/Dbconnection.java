@@ -13,7 +13,7 @@ public class Dbconnection {
         System.out.println("Connecting database...");
 
         //I'm not sure that .cj should be here
-        Class.forName("com.cj.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         // https://docs.oracle.com/javase/tutorial/jdbc/basics/processingsqlstatements.html#establishing_connections
         //1 establish connection
         return DriverManager.getConnection(url, dbUser, password);
