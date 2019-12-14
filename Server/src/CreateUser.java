@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 import com.dbconnection.Dbconnection;
-public class createUser extends javax.servlet.http.HttpServlet {
+public class CreateUser extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws IOException {
         String tableName = "user_info";
 

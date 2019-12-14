@@ -35,7 +35,7 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
         System.out.println("Connecting database...");
 
         try {
-            Class.forName("com.cj.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             // https://docs.oracle.com/javase/tutorial/jdbc/basics/processingsqlstatements.html#establishing_connections
             //1 establish connection
             Connection dbConnection = DriverManager.getConnection(url, dbUser, password);

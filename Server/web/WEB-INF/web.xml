@@ -10,8 +10,8 @@
     </servlet>
 
     <servlet>
-        <servlet-name>createUser</servlet-name>
-        <servlet-class>createUser</servlet-class>
+        <servlet-name>CreateUser</servlet-name>
+        <servlet-class>CreateUser</servlet-class>
     </servlet>
 
     <servlet>
@@ -30,8 +30,8 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>createUser</servlet-name>
-        <url-pattern>/createUser</url-pattern>
+        <servlet-name>CreateUser</servlet-name>
+        <url-pattern>/CreateUser</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
